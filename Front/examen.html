@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Examen JavaScript - CodeMaster Academy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <img src="images/logo.jpg" alt="CodeMaster Academy" class="logo">
+    <h1>CodeMaster Academy</h1>
+  </header>
+
+  <main>
+    <section class="exam-section active">
+      <h2>Certificación en JavaScript</h2>
+      <p>Responde las siguientes preguntas. Cada una vale 1 punto.</p>
+
+      <form id="exam-form" class="exam-form">
+        <!-- Pregunta 1 -->
+        <div class="question">
+          <h3>1. ¿Qué tipo de dato devuelve la función <code>typeof</code> en JavaScript?</h3>
+          <label><input type="radio" name="q1" value="a"> Un número</label>
+          <label><input type="radio" name="q1" value="b"> Un string</label>
+          <label><input type="radio" name="q1" value="c"> Un booleano</label>
+          <label><input type="radio" name="q1" value="d"> Un objeto</label>
+        </div>
+
+        <!-- Pregunta 2 -->
+        <div class="question">
+          <h3>2. ¿Cuál de las siguientes opciones crea correctamente una función?</h3>
+          <label><input type="radio" name="q2" value="a"> <code>func = new Function[];</code></label>
+          <label><input type="radio" name="q2" value="b"> <code>function = saludo();</code></label>
+          <label><input type="radio" name="q2" value="c"> <code>function saludo() { }</code></label>
+          <label><input type="radio" name="q2" value="d"> <code>let saludo = función();</code></label>
+        </div>
+
+        <!-- Pregunta 3 -->
+        <div class="question">
+          <h3>3. ¿Qué imprime este código?<br><code>console.log(2 + "2");</code></h3>
+          <label><input type="radio" name="q3" value="a"> 4</label>
+          <label><input type="radio" name="q3" value="b"> 22</label>
+          <label><input type="radio" name="q3" value="c"> Error</label>
+          <label><input type="radio" name="q3" value="d"> undefined</label>
+        </div>
+
+        <!-- Pregunta 4 -->
+        <div class="question">
+          <h3>4. ¿Qué palabra clave se usa para declarar una constante?</h3>
+          <label><input type="radio" name="q4" value="a"> let</label>
+          <label><input type="radio" name="q4" value="b"> var</label>
+          <label><input type="radio" name="q4" value="c"> const</label>
+          <label><input type="radio" name="q4" value="d"> static</label>
+        </div>
+
+        <!-- Pregunta 5 -->
+        <div class="question">
+          <h3>5. ¿Cuál es el resultado de <code>Boolean(0)</code>?</h3>
+          <label><input type="radio" name="q5" value="a"> true</label>
+          <label><input type="radio" name="q5" value="b"> false</label>
+          <label><input type="radio" name="q5" value="c"> undefined</label>
+          <label><input type="radio" name="q5" value="d"> NaN</label>
+        </div>
+
+        <div>
+          <h3>6. ¿Cuál es el resultado de <code>Boolean(0)</code>?</h3>
+          <label><input type="radio" name="q5" value="a"> true</label>
+          <label><input type="radio" name="q5" value="b"> false</label>
+          <label><input type="radio" name="q5" value="c"> undefined</label>
+          <label><input type="radio" name="q5" value="d"> NaN</label>
+        </div>
+
+        <div>
+          <h3>7. ¿Cuál es el resultado de <code>Boolean(0)</code>?</h3>
+          <label><input type="radio" name="q5" value="a"> true</label>
+          <label><input type="radio" name="q5" value="b"> false</label>
+          <label><input type="radio" name="q5" value="c"> undefined</label>
+          <label><input type="radio" name="q5" value="d"> NaN</label>
+        </div>
+
+        <div>
+          <h3>8. ¿Cuál es el resultado de <code>Boolean(0)</code>?</h3>
+          <label><input type="radio" name="q5" value="a"> true</label>
+          <label><input type="radio" name="q5" value="b"> false</label>
+          <label><input type="radio" name="q5" value="c"> undefined</label>
+          <label><input type="radio" name="q5" value="d"> NaN</label>
+        </div>
+
+        <button type="submit" class="submit-btn">Enviar respuestas</button>
+      </form>
+
+      <div id="result" class="result"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 CodeMaster Academy. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('exam-form');
+    const result = document.getElementById('result');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const correctAnswers = {
+        q1: 'b',
+        q2: 'c',
+        q3: 'b',
+        q4: 'c',
+        q5: 'b'
+      };
+
+      let score = 0;
+      Object.keys(correctAnswers).forEach(q => {
+        const answer = form[q].value;
+        if (answer === correctAnswers[q]) score++;
+      });
+
+      result.innerHTML = `
+        <h3>Resultado:</h3>
+        <p>Tu puntaje es <strong>${score}/5</strong></p>
+        <p>${score >= 4 ? "🎉 ¡Excelente trabajo!" : "Sigue practicando, puedes mejorar 💪"}</p>
+        <button onclick="window.location.href='index.html'">Volver al inicio</button>
+      `;
+
+      result.style.display = 'block';
+      form.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

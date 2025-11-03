@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeMaster Academy - Plataforma de Certificación</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="logo.png">
+</head>
+<body>
+  <header>
+    <img src="images/logo.jpg" alt="CodeMaster Academy" class="logo">
+    <h1>CodeMaster Academy</h1>
+  </header>
+
+  <main>
+    <!-- Sección de Login -->
+    <section id="login-section" class="active">
+      <h2>Inicia Sesión</h2>
+      <form id="login-form">
+        <input type="text" placeholder="Usuario" required>
+        <input type="password" placeholder="Contraseña" required>
+        <button type="submit">Entrar</button>
+      </form>
+    </section>
+
+    <!-- Sección de Certificaciones -->
+    <section id="certificaciones-section">
+      <h2>Selecciona tu Certificación</h2>
+      <div class="cards">
+        <div class="card active">
+          <h3>Certificación en JavaScript</h3>
+          <p>Evalúa tus conocimientos en JS moderno (ES6+)</p>
+          <button onclick="location.href='javascript-exam.html'">Comenzar</button>
+        </div>
+
+        <div class="card">
+          <h3>Certificación en Python</h3>
+          <p>Próximamente disponible</p>
+          <button disabled>Próximamente</button>
+        </div>
+
+        <div class="card">
+          <h3>Certificación en C#</h3>
+          <p>Próximamente disponible</p>
+          <button disabled>Próximamente</button>
+        </div>
+
+        <div class="card">
+          <h3>Certificación en Java</h3>
+          <p>Próximamente disponible</p>
+          <button disabled>Próximamente</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 CodeMaster Academy. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const loginForm = document.getElementById('login-form');
+    const loginSection = document.getElementById('login-section');
+    const certSection = document.getElementById('certificaciones-section');
+
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      loginSection.classList.remove('active');
+      certSection.classList.add('active');
+    });
+  </script>
+</body>
+</html>

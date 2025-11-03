@@ -4,6 +4,7 @@
   --azul: #0b1530;
   --verde: #56ff94;
   --blanco: #fff;
+  --rojo: #c02626;
 }
 
 * {
@@ -54,12 +55,14 @@ nav a {
   transition: color 0.3s;
 }
 
+/*hace que nuestra lista de secciones se ilumine de verde cuando estamos dentro de cada una*/
 nav a:hover,
 nav a.active {
-  color: var(--verde);
+  color: var(--rojo);
 }
 
 /* SECCIONES */
+/* */
 main {
   flex: 1;
   display: flex;
@@ -68,6 +71,10 @@ main {
   text-align: center;
 }
 
+/*todas nuestras clases section toman este formato*/
+/*lo dejamoms en display: none para que no aparezcan las secciones hasta que les apliquemos las etiquetas de active 
+y ya aparezcan con display: block*/
+/*hay que definir @keyframes fadeIn*/
 .section {
   display: none;
   width: 90%;
@@ -76,6 +83,7 @@ main {
   animation: fadeIn 0.5s ease;
 }
 
+/*Cuando una etiqueta tenga las clases section y active se harán visibles*/
 .section.active {
   display: block;
 }

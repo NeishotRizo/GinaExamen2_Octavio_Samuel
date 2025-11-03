@@ -5,12 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CodeMaster Academy - Plataforma de Certificación</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="logo.jpg">
+  <link rel="icon" href="images/logo.jpg">
 </head>
 <body>
+    <!-- linkeamos nuestro source de js al html y ponemos defer para que primero se carguen los elementos html y luego los js -->
+    <script src="javascript.js" defer></script>
   <header>
     <img src="images/logo.jpg" alt="CodeMaster Academy" class="logo">
     <h1>CodeMaster Academy</h1>
+    <!-- Lista de referencias y para las 4 secciones de las paginas usando anclas y list ittems denttro de una unordered listt-->
+     <!-- los <a> son con href son anclas que nos mandan a un bloque de html para mosttrar así podemos cambiar pantallas en la página -->
+        <!-- nos lleva a las ids de de inicio, certificaciones, nosotros y contacto -->
     <nav>
       <ul>
         <li><a href="#inicio" class="active">Inicio</a></li>
@@ -23,6 +28,7 @@
 
   <main>
     <!-- INICIO -->
+     <!-- Nuestro inicio de la página con el attajo para ir a la seccion de certificaciones -->
     <section id="inicio" class="section active">
       <div class="hero">
         <h2>Impulsa tu carrera como programador</h2>
@@ -38,9 +44,13 @@
       <!-- Login -->
       <div id="login-section" class="login-box">
         <h3>Inicia Sesión para continuar</h3>
+        <!-- Nuestra forma para submitear el usuario y contraseña, con placeholder para dejarle el usuario de fondo a los fields-->
+         <!-- hace falta poner la parte que hace que se suban los datos de la forma -->
         <form id="login-form">
           <input type="text" placeholder="Usuario" required>
+          <!-- type=password para que la contraseña aparezca cifrada-->
           <input type="password" placeholder="Contraseña" required>
+          <!-- type=submit para subir los datos del formulario login, aun le falta un action que de verdad suba los datos-->
           <button type="submit">Entrar</button>
         </form>
       </div>
@@ -50,7 +60,7 @@
         <div class="card active">
           <h3>JavaScript</h3>
           <p>Evalúa tus conocimientos en JS moderno (ES6+)</p>
-          <button onclick="location.href='javascript-exam.html'">Comenzar</button>
+          <button onclick="location.href='examen.html'">Comenzar</button>
         </div>
         <div class="card">
           <h3>Python</h3>
@@ -94,33 +104,6 @@
     <p>© 2025 CodeMaster Academy. Todos los derechos reservados.</p>
   </footer>
 
-  <script>
-    // Navegación
-    const links = document.querySelectorAll('nav a');
-    const sections = document.querySelectorAll('.section');
-
-    links.forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        links.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-        const target = document.querySelector(link.getAttribute('href'));
-        sections.forEach(s => s.classList.remove('active'));
-        target.classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    });
-
-    // Login funcional
-    const loginForm = document.getElementById('login-form');
-    const loginBox = document.getElementById('login-section');
-    const certSection = document.getElementById('certificaciones-section');
-
-    loginForm.addEventListener('submit', e => {
-      e.preventDefault();
-      loginBox.style.display = 'none';
-      certSection.style.display = 'grid';
-    });
-  </script>
+  
 </body>
 </html>

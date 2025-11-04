@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const path = require('path');
 
-const usersFile = path.join(__dirname, 'data', 'users.json');
+const usersFile = path.join(__dirname, '../data', 'users.json');
 
 const login = async (req, res) => {
     const { username, password } = req.body;
@@ -15,6 +15,9 @@ const login = async (req, res) => {
     if (!user) {
         return res.status(401).json({ message: 'Usuario no encontrado' });
     }
+
+    /* const pwd = bcrypt.hashSync(password, 10);
+    console.log('Hash generado para comparación:', pwd); */
 
     // Validar hash con bcrypt
     const isValid = await bcrypt.compare(password, user.password);

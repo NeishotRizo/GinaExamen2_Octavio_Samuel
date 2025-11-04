@@ -24,37 +24,41 @@ function removeToken() {
 
 const form = document.getElementById("login-form");
 const mensaje = document.getElementById("mensaje");
+//igualamos loginBox a login-section
+const loginBox = document.getElementById("login-section");
+const message = document.getElementById('message');
 //añadimos un eventlistener a nuestra constante form, que al ocurrir el evento submit de nuestro objeto form especifico,
 //hace que se ejecute la callback function(e) para que se ejecute solo si el evento submit ha ocurrido
 form.addEventListener('submit', async (e) => {
   e.preventDefault(); // Evita que el formulario recargue la página
 
-     const username = document.getElementById('usuario').value.trim();
-      const password = document.getElementById('passwrd').value.trim();
+  const username = document.getElementById('usuario').value.trim();
+  const password = document.getElementById('passwrd').value.trim();
 
-    try {
-      const res = await fetch('http://localhost:8080/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
-      });
-
-      if (!res.ok) {
-        const err = await res.json();
-        message.textContent = err.message || 'Error al iniciar sesión';
-        message.style.color = 'red';
-        return;
-      }
-
-      const data = await res.json();
-      localStorage.setItem('token', data.token);
-      message.textContent = 'Inicio de sesión exitoso';
-      message.style.color = 'green';
-    } catch (err) {
-      console.error(err);
-      message.textContent = 'Error de conexión con el servidor';
+  try {
+    const res = await fetch('http://localhost:8080/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    });
+    
+    if (!res.ok) {
+      const err = await res.json();
+      message.textContent = err.message || 'Error al iniciar sesión';
       message.style.color = 'red';
+      return;
     }
+
+    const data = await res.json();
+    localStorage.setItem('token', data.token);
+    message.textContent = 'Inicio de sesión exitoso';
+    message.style.color = 'green';
+    loginBox.style.display = "none";
+  } catch (err) {
+    console.error(err);
+    message.textContent = 'Error de conexión con el servidor';
+    message.style.color = 'red';
+  }
 });
 
 // Navegación a travez de las 4 secciones de inicio certifficaciones contacto y nosotros
@@ -96,17 +100,9 @@ links.forEach((link) => {
 // Login funcional
 //igualamos loginForma nuestra login-form
 const loginForm = document.getElementById("login-form");
-//igualamos loginBox a login-section
-const loginBox = document.getElementById("login-section");
+
 //igualamos cerSection a certificaciones-section
 const certSection = document.getElementById("certificaciones-section");
 //añadimos un evento a nuestro formulario login cuando ocurra el evento submit del formulario va a pasar la funcion flecha e
-loginForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  //a nuestra loginbox le cambiamos el atributo de estilos display a none para que desaparezca y de espacio a que aparezcan las
-  //certificaciones disponibles
-  loginBox.style.display = "none";
-  //a nuestra section de certificaciones le cambiamos el display a grid para que aparezcan disponibles las certificaciones
-});
 
 

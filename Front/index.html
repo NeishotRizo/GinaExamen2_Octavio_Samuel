@@ -6,8 +6,11 @@
   <title>CodeMaster Academy - Plataforma de Certificación</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="images/logo.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
+  
     <!-- linkeamos nuestro source de js al html y ponemos defer para que primero se carguen los elementos html y luego los js -->
     <script src="javascript.js" defer></script>
   <header>
@@ -45,9 +48,9 @@
         <!-- Nuestra forma para submitear el usuario y contraseña, con placeholder para dejarle el usuario de fondo a los fields-->
          <!-- hace falta poner la parte que hace que se suban los datos de la forma -->
         <form id="login-form">
-          <input type="text" placeholder="Usuario" required>
+          <input id="usuario" type="text" placeholder="Usuario" required>
           <!-- type=password para que la contraseña aparezca cifrada-->
-          <input type="password" placeholder="Contraseña" required>
+          <input id="passwrd" type="password" placeholder="Contraseña" required>
           <!-- type=submit para subir los datos del formulario login, aun le falta un action que de verdad suba los datos-->
           <button type="submit">Entrar</button>
         </form>
@@ -92,6 +95,13 @@
       <h2>Sobre Nosotros</h2>
       <p>CodeMaster Academy es una plataforma creada por desarrolladores para desarrolladores. Nuestra misión es impulsar el aprendizaje técnico con evaluaciones prácticas y certificaciones de nivel profesional.</p>
       <p>Contamos con expertos certificados en tecnologías como JavaScript, Python, C# y Java, comprometidos con formar a la nueva generación de programadores.</p>
+      <p>Siguenos en nuestras redes!</p>
+      <a href="https://www.instagram.com/codemaster_academy_?igsh=MW8xZnIybWZpeXN2eQ==" target="_blank" style="color:#40e464; font-size:32px;">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      
+    
+    
     </section>
 
     <!-- CONTACTO -->

@@ -14,13 +14,17 @@ class Server {
         this.httpServer = http.createServer(this.app);
         //Asignamos puerto si hay puerto en la variable o si no default usa 8080
         this.port = process.env.PORT || 8080;
+
+
         //Relacionamos las rutas de las sesiones y autenticación
         this.routes = {
             
             session: '/api/session',
-            auth: '/api/auth'
+            auth: '/api/auth',
+            certificado: '/api/certificado'
         };
-        //llamamos a la funcion middlewares para conectar las rutas
+        //llamamos al metodo middlewares para conectar las rutas
+
         this.middlewares(dirname);
     }
 

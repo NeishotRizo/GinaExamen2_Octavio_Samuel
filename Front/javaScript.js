@@ -1,27 +1,8 @@
 // ===== CONFIGURACIÓN =====
-const API_URL = "http://localhost:3000/api";
 
-// ===== UTILIDADES =====
-// Guardar token en localStorage
-function saveToken(token) {
-  localStorage.setItem("authToken", token);
-}
 
-// Obtener token
-function getToken() {
-  return localStorage.getItem("authToken");
-}
 
-// Eliminar token
-function removeToken() {
-  localStorage.removeItem("authToken");
-}
-
-//Parte de validacion de usuario en la forma login
-//igualamos la constante form a el elemento que tomamos por id que es en este caso login-form
-
-//#igualamos la constante mensaje a el elemento mensaje que no hace nada por ahora#
-
+//useless
 const form = document.getElementById("login-form");
 const mensaje = document.getElementById("mensaje");
 //igualamos loginBox a login-section

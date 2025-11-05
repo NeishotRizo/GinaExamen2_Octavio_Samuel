@@ -1,5 +1,5 @@
 // ===== CONFIGURACIÓN =====
-
+console.log("ausilio");
 localStorage.setItem('logeado', 'false');
 
 const certSection = document.getElementById("certificaciones-section");
@@ -40,7 +40,7 @@ form.addEventListener('submit', async (e) => {
       //Marcamos que estamos logueados
       localStorage.setItem('logeado', 'true');
       setTimeout(() => {
-      window.location.reload();
+      
       }, 3500);
     }
     
@@ -49,6 +49,7 @@ form.addEventListener('submit', async (e) => {
     message.textContent = 'Error de conexión con el servidor';
     message.style.color = 'red';
     setTimeout(() => {
+
       window.location.reload();
     }, 3500);
   }
@@ -62,6 +63,22 @@ form.addEventListener('submit', async (e) => {
 const links = document.querySelectorAll("nav a");
 //igualamos sections a todas las etiquetas con la clase section
 const sections = document.querySelectorAll(".section");
+const contacto = document.getElementById("contactof");
+
+contacto.addEventListener('submit', async e => {
+  e.preventDefault();
+    Swal.fire({
+    icon: 'success',
+    title: '¡Formulario enviado!',
+    text: 'Gracias por contactarnos, te responderemos pronto.',
+    confirmButtonText: 'Aceptar'
+    });
+
+  contacto.reset(); // Limpia los campos del formulari
+  
+});
+
+
 // hacemos un for each del "Array" que se formó al hacer la constante links
 //link es la la variable que tendra el valor actual de la opcion que estemos recorriendo de el "Array" links
 links.forEach((link) => {
@@ -105,9 +122,12 @@ links.forEach((link) => {
     const logoutbtn = document.getElementById('logoutanch');
 
     logoutbtn.addEventListener("click", (e) => {
-      
+        console.log("cerrando sesion")
       localStorage.setItem('logeado', 'false');
       localStorage.removeItem('token');
+      loginBox.style.display = "block";
+      message.textContent = '';
+      message.style.color = 'none';
 
     });
     

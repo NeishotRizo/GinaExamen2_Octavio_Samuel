@@ -16,12 +16,12 @@
   <header>
     <img src="images/logo.jpg" alt="CodeMaster Academy" class="logo">
     <h1>CodeMaster Academy</h1>
+    
     <!-- Lista de referencias y para las 4 secciones de las paginas usando anclas y list ittems denttro de una unordered listt-->
      <!-- los <a> son con href son anclas que nos mandan a un bloque de html para mosttrar así podemos cambiar pantallas en la página -->
         <!-- nos lleva a las ids de de inicio, certificaciones, nosotros y contacto -->
     <nav>
       <ul>
-        
         <li id="logoutbtn" class="out"><a id="logoutanch" href="#logout">Logout</a></li>
         <li id="logbtn" class="log"><a href="#login">Login</a></li>
         <li><a href="#inicio" class="active">Inicio</a></li>
@@ -40,7 +40,16 @@
     <section id="inicio" class="section active">
       <div class="hero">
         <h2>Impulsa tu carrera como programador</h2>
-        <p>En CodeMaster Academy te ofrecemos certificaciones que validan tus habilidades en los lenguajes de programación más demandados del mercado.</p>
+        <div class="iniciopq">
+          <p>En CodeMaster Academy te ofrecemos certificaciones que validan tus habilidades en los lenguajes de programación más demandados del mercado.</p>
+        </div>
+        
+        <h3 class="h3i"> Por qué certificarse?</h3>
+        <div class="iniciopq">
+          <p>Certificarse en JavaScript es una inversión en tu futuro. 
+            Valida tus habilidades, te mantiene actualizado y demuestra compromiso con tu desarrollo profesional. 
+            Una certificación te da ventaja y credibilidad en tu carrera.</p>
+        </div>
         <button onclick="document.querySelector('#certificaciones').scrollIntoView({behavior: 'smooth'})">Ver Certificaciones</button>
       </div>
     </section>
@@ -87,16 +96,19 @@
         <div class="card">
           <h3>Python</h3>
           <p>Próximamente disponible</p>
+          <p>Fecha: 20 de Noviembre 2025</p>
           <button disabled>Próximamente</button>
         </div>
         <div class="card">
           <h3>C#</h3>
           <p>Próximamente disponible</p>
+          <p>Fecha: Febrero 2026</p>
           <button disabled>Próximamente</button>
         </div>
         <div class="card">
           <h3>Java</h3>
           <p>Próximamente disponible</p>
+          <p>Fecha: Junio 2026</p>
           <button disabled>Próximamente</button>
         </div>
       </div>
@@ -145,7 +157,7 @@
     <section id="contacto" class="section">
       <h2>Contáctanos</h2>
       <p>¿Tienes dudas o necesitas más información? Escríbenos.</p>
-      <form class="contact-form">
+      <form id="contactof" class="contact-form">
         <input type="text" placeholder="Nombre" required>
         <input type="email" placeholder="Correo electrónico" required>
         <textarea placeholder="Tu mensaje" rows="5" required></textarea>
@@ -159,6 +171,7 @@
   </main>
 
   <footer>
+    <h3>Domina el código. Certifica tu futuro</h3>
     <p>© 2025 CodeMaster Academy. Todos los derechos reservados.</p>
   </footer>
 

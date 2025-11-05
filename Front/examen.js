@@ -1,4 +1,5 @@
 // Elemento donde se mostrarán las preguntas
+
 const contenedor = document.getElementById('contenedor-preguntas');
 
 // Variables de control
@@ -65,7 +66,7 @@ function pagar() {
       contenedor.appendChild(btnFinalizar);
 
       btnFinalizar.addEventListener('click', () => {
-        // Ejemplo: calculamos puntaje (aquí solo simulamos aprobado)
+        //nomas le asemos a ke si 
         const aprobado = true; 
 
         if (aprobado) {

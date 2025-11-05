@@ -6,6 +6,7 @@ const path = require('path');
 
 const usersFile = path.join(__dirname, '../data', 'users.json');
 
+//se activa al recibir el post login
 const login = async (req, res) => {
     const { username, password } = req.body;
 
@@ -14,10 +15,7 @@ const login = async (req, res) => {
 
     if (!user) {
         return res.status(401).json({ message: 'Usuario no encontrado' });
-    }
-
-    /* const pwd = bcrypt.hashSync('techno12', 10);
-    console.log('Hash generado para comparación:', pwd);   */
+    } 
 
     // Validar hash con bcrypt
     const isValid = await bcrypt.compare(password, user.password);
@@ -28,7 +26,7 @@ const login = async (req, res) => {
     const token = createSession(username);
     return res.json({ token });
 };
-
+//Obtenemos el token http para desttruirlo
 const logout = async (req, res) => {
     const auth = req.headers.authorization;
     if (!auth) return res.status(401).json({ message: 'No autorizado' });
